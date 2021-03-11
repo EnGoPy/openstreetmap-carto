@@ -1,11 +1,11 @@
 // --- Parks, woods, other green things ---
 
-@grass: #cdebb0;        // Lch(90,32,128) also grassland, meadow, village_green, garden, allotments
+@grass: #CEEAD6;        // Lch(90,32,128) also grassland, meadow, village_green, garden, allotments
 @scrub: #c8d7ab;        // Lch(84,24,122)
 @forest: #add19e;       // Lch(80,30,135)
 @forest-text: #46673b;  // Lch(40,30,135)
-@park: #c8facc;         // Lch(94,30,145)
-@allotments: #c9e1bf;   // Lch(87,20,135)
+@park: #CEEAD6;         // Lch(94,30,145)
+@allotments: #CEEAD6;   // Lch(87,20,135)
 @orchard: #aedfa3; // also vineyard, plant_nursery
 @hedge: @forest;       // Lch(80,30,135)
 
@@ -13,15 +13,15 @@
 
 @built-up-lowzoom: #d0d0d0;
 @built-up-z12: #dddddd;
-@residential: #e0dfdf;      // Lch(89,0,0)
+@residential: #EFEFEF;      // Lch(89,0,0)
 @residential-line: #b9b9b9; // Lch(75,0,0)
-@retail: #ffd6d1;           // Lch(89,16,30)
+@retail: #EFEFEF;           // Lch(89,16,30)
 @retail-line: #d99c95;      // Lch(70,25,30)
-@commercial: #f2dad9;       // Lch(89,8.5,25)
+@commercial: #EFEFEF;       // Lch(89,8.5,25)
 @commercial-line: #d1b2b0;  // Lch(75,12,25)
-@industrial: #ebdbe8;       // Lch(89,9,330) (Also used for railway, wastewater_plant)
+@industrial: #EFEFEF;       // Lch(89,9,330) (Also used for railway, wastewater_plant)
 @industrial-line: #c6b3c3;  // Lch(75,11,330) (Also used for railway-line, wastewater_plant-line)
-@farmland: #eef0d5;         // Lch(94,14,112)
+@farmland: #CEEAD6;         // Lch(94,14,112)
 @farmland-line: #c7c9ae;    // Lch(80,14,112)
 @farmyard: #f5dcba;         // Lch(89,20,80)
 @farmyard-line: #d1b48c;    // Lch(75,25,80)
