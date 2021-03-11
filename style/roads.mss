@@ -3,19 +3,19 @@
 @tertiary-fill: #ffffff;
 @residential-fill: #ffffff;
 @service-fill: @residential-fill;
-@living-street-fill: #ededed;
+@living-street-fill: #FFFFFF;
 @pedestrian-fill: #dddde8;
 @raceway-fill: pink;
 @road-fill: #ddd;
-@footway-fill: salmon;
+@footway-fill: #ffffff;
 @footway-fill-noaccess: #bbbbbb;
 @steps-fill: @footway-fill;
 @steps-fill-noaccess: #bbbbbb;
-@cycleway-fill: blue;
+@cycleway-fill: #6DBF83;
 @cycleway-fill-noaccess: #9999ff;
 @bridleway-fill: green;
 @bridleway-fill-noaccess: #aaddaa;
-@track-fill: #996600;
+@track-fill: #FFFFFF;
 @track-fill-noaccess: #e2c5bb;
 @aeroway-fill: #bbc;
 @runway-fill: @aeroway-fill;
@@ -113,7 +113,7 @@
 @residential-width-z13:           2.5;
 @living-street-width-z13:         2;
 @bridleway-width-z13:             0.3;
-@footway-width-z14:               0.7;
+@footway-width-z14:               1;
 @cycleway-width-z13:              0.7;
 @track-width-z13:                 0.5;
 @track-grade1-width-z13:          0.5;
@@ -146,7 +146,9 @@
 @cycleway-width-z15:              0.9;
 @track-width-z15:                 1.5;
 @track-grade1-width-z15:          0.75;
+@track-grade1-width-z17:          4;
 @track-grade2-width-z15:          0.75;
+@track-grade2-width-z17:          4;
 @steps-width-z15:                 3;
 
 @secondary-width-z16:            10;
@@ -157,7 +159,7 @@
 @road-width-z16:                  3.5;
 @service-width-z16:               3.5;
 @minor-service-width-z16:         2;
-@footway-width-z16:               1.3;
+@footway-width-z16:               1.5;
 @cycleway-width-z16:              0.9;
 
 @motorway-width-z17:             18;
@@ -193,7 +195,7 @@
 @road-width-z18:                  8.5;
 @service-width-z18:               8.5;
 @minor-service-width-z18:         4.75;
-@footway-width-z18:               1.3;
+@footway-width-z18:               3;
 @cycleway-width-z18:              1;
 
 @motorway-width-z19:             27;
@@ -212,7 +214,7 @@
 @road-width-z19:                 11;
 @service-width-z19:              11;
 @minor-service-width-z19:         5.5;
-@footway-width-z19:               1.6;
+@footway-width-z19:               3;
 @cycleway-width-z19:              1.3;
 
 @motorway-width-z20:             33;
@@ -1850,17 +1852,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     [feature = 'highway_footway'],
     [feature = 'highway_path'][bicycle != 'designated'][horse != 'designated'] {
-      [zoom >= 14][access != 'no'],
-      [zoom >= 15] {
-        #roads-fill[zoom >= 15] {
+      [zoom >= 17][access != 'no'],
+      [zoom >= 17] {
+        #roads-fill[zoom >= 17] {
           background/line-color: @footway-casing;
           background/line-cap: round;
           background/line-join: round;
           background/line-width: @footway-width-z15 + 2 * @paths-background-width;
           background/line-opacity: 0.4;
-          [zoom >= 16] {
-            background/line-width: @footway-width-z16 + 2 * @paths-background-width;
-          }
+          
           [zoom >= 18] {
             background/line-width: @footway-width-z18 + 2 * @paths-background-width;
           }
@@ -1870,20 +1870,15 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         }
         line/line-color: @footway-fill;
         [access = 'no'] { line/line-color: @footway-fill-noaccess; }
-        line/line-dasharray: 1,3;
+        line/line-dasharray: 2,2;
         line/line-join: round;
         line/line-cap: round;
         line/line-width: @footway-width-z14;
-        [zoom >= 15][int_surface = 'paved'] {
-          line/line-dasharray: 2,3.5;
-          line/line-width: @footway-width-z15;
-          [zoom >= 16] {
-            line/line-dasharray: 3,3.5;
-            line/line-width: @footway-width-z16;
-          }
-          [zoom >= 17] {
-            line/line-dasharray: 3,3;
-          }
+        [zoom >= 17][int_surface = 'paved'] {
+
+          
+          line/line-dasharray: 3,3.5;
+          line/line-width: @footway-width-z16;
           [zoom >= 18] {
             line/line-width: @footway-width-z18;
           }
@@ -1891,17 +1886,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             line/line-width: @footway-width-z19;
           }
         }
-        [zoom >= 15][int_surface = null] {
+        [zoom >= 17][int_surface = null] {
           line/line-color: @footway-fill;
           [access = 'no'] { line/line-color: @footway-fill-noaccess; }
-          line/line-dasharray: 1,3,2,4;
+          line/line-dasharray: 2,4;
           line/line-join: round;
           line/line-cap: round;
-          line/line-width: @footway-width-z15;
-          [zoom >= 16] {
-            line/line-dasharray: 1,4,2,3;
-            line/line-width: @footway-width-z16;
-          }
+          line/line-width: @footway-width-z16;
           [zoom >= 18] {
             line/line-width: @footway-width-z18;
           }
@@ -1909,16 +1900,13 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             line/line-width: @footway-width-z19;
           }
         }
-        [zoom >= 15][int_surface = 'unpaved'] {
+        [zoom >= 17][int_surface = 'unpaved'] {
           line/line-color: @footway-fill;
           [access = 'no'] { line/line-color: @footway-fill-noaccess; }
-          line/line-dasharray: 1,4;
+          line/line-dasharray: 2,4;
           line/line-join: round;
           line/line-cap: round;
-          line/line-width: @footway-width-z15;
-          [zoom >= 16] {
-            line/line-width: @footway-width-z16;
-          }
+          line/line-width: @footway-width-z16;
           [zoom >= 18] {
             line/line-width: @footway-width-z18;
           }
@@ -2012,7 +2000,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
 
     [feature = 'highway_track'] {
       [zoom >= 13][access != 'no'],
-      [zoom >= 15] {
+      [zoom >= 17] {
         /* The white casing that you mainly see against forests and other dark features */
         #roads-fill[zoom >= 15] {
           background/line-opacity: 0.4;
@@ -2022,17 +2010,18 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           background/line-width: @track-width-z15 + 2 * @paths-background-width;
           /* With the heavier dasharrays on grade1 and grade2 it helps to make the casing a bit larger */
           [tracktype = 'grade1'] {
-            background/line-width: @track-grade1-width-z15 + 2 * @paths-background-width;
+            background/line-width: @track-grade1-width-z17 + 2 * @paths-background-width;
           }
           [tracktype = 'grade2'] {
-            background/line-width: @track-grade2-width-z15 + 2 * @paths-background-width;
+            background/line-width: @track-grade2-width-z17 + 2 * @paths-background-width;
           }
         }
 
         /* Set the properties of the brown inside */
         line/line-color: @track-fill;
         [access = 'no'] { line/line-color: @track-fill-noaccess; }
-        line/line-dasharray: 5,4,2,4;
+        /* line/line-dasharray: 5,4,2,4; */
+	
         line/line-cap: round;
         line/line-join: round;
         line/line-opacity: 0.8;
@@ -2080,7 +2069,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
     [feature = 'railway_rail'][zoom >= 8],
     [feature = 'railway_INT-spur-siding-yard'][zoom >= 13] {
       [zoom < 13] {
-        line-color: #787878;
+        line-color: #e0e0e0;
         line-width: 0.5;
         [zoom >= 8] { line-width: 0.8; }
         [zoom >= 12] { line-width: 0.9; }
@@ -2095,8 +2084,8 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
           light/line-color: white;
           light/line-join: round;
           [feature = 'railway_rail'] {
-            dark/line-color: #707070;
-            dark/line-width: 2;
+            dark/line-color: #e0e0e0;
+            dark/line-width: 1.5;
             light/line-width: 0.75;
             light/line-dasharray: 8,8;
             [zoom >= 13] {
@@ -2108,12 +2097,12 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
             }
             [zoom >= 18] {
               dark/line-width: 4;
-              light/line-width: 2;
+              light/line-width: 1.5;
             }
           }
           [feature = 'railway_INT-spur-siding-yard'] {
             dark/line-width: 2;
-            dark/line-color: #aaa;
+            dark/line-color: #e0e0e0;
             light/line-width: 0.8;
             light/line-dasharray: 0,8,8,1;
             [zoom >= 18] {
@@ -2299,7 +2288,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
         line-color: grey;
         line-cap: round;
         b/line-width: 4;
-        b/line-color: #bbbbbb;
+        b/line-color: #d6d6d6;
         b/line-cap: round;
         b/line-join: round;
       }
@@ -2617,7 +2606,7 @@ tertiary is rendered from z10 and is not included in osm_planet_roads. */
   [feature = 'highway_platform'],
   [feature = 'railway_platform'] {
     [zoom >= 16] {
-      polygon-fill: #bbbbbb;
+      polygon-fill: #d6d6d6;
       polygon-gamma: 0.65;
     }
   }

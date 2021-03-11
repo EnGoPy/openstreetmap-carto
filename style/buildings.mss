@@ -1,4 +1,4 @@
-@building-fill: #d9d0c9;  // Lch(84, 5, 68)
+@building-fill: #F1F3F4;  // Lch(84, 5, 68)
 @building-line: darken(@building-fill, 15%);  // Lch(70, 9, 66)
 @building-low-zoom: darken(@building-fill, 4%);
 
@@ -11,10 +11,10 @@
 @entrance-normal: @building-line;
 
 #buildings {
-  [zoom >= 14] {
+  [zoom >= 15] {
     polygon-fill: @building-low-zoom;
     polygon-clip: false;
-    [zoom >= 15] {
+    [zoom >= 17] {
       polygon-fill: @building-fill;
       line-color: @building-line;
       line-width: .75;
@@ -38,7 +38,7 @@
 }
 
 #bridge {
-  [zoom >= 12] {
+  [zoom >= 16] {
     polygon-fill: #B8B8B8;
   }
 }
