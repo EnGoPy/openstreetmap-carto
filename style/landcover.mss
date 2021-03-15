@@ -1,7 +1,7 @@
 // --- Parks, woods, other green things ---
 
 @grass: #CEEAD6;        // Lch(90,32,128) also grassland, meadow, village_green, garden, allotments
-@scrub: #c8d7ab;        // Lch(84,24,122)
+@scrub: #CEEAD6;        // Lch(84,24,122)
 @forest: #add19e;       // Lch(80,30,135)
 @forest-text: #46673b;  // Lch(40,30,135)
 @park: #CEEAD6;         // Lch(94,30,145)
@@ -14,11 +14,11 @@
 @built-up-lowzoom: #d0d0d0;
 @built-up-z12: #dddddd;
 @residential: #EFEFEF;      // Lch(89,0,0)
-@residential-line: #b9b9b9; // Lch(75,0,0)
+@residential-line: #dbdbdb; // Lch(75,0,0)
 @retail: #EFEFEF;           // Lch(89,16,30)
 @retail-line: #d99c95;      // Lch(70,25,30)
 @commercial: #EFEFEF;       // Lch(89,8.5,25)
-@commercial-line: #d1b2b0;  // Lch(75,12,25)
+@commercial-line: #dbdbdb;  // Lch(75,12,25)
 @industrial: #EFEFEF;       // Lch(89,9,330) (Also used for railway, wastewater_plant)
 @industrial-line: #c6b3c3;  // Lch(75,11,330) (Also used for railway-line, wastewater_plant-line)
 @farmland: #CEEAD6;         // Lch(94,14,112)
@@ -30,9 +30,9 @@
 
 @transportation-area: #e9e7e2;
 @apron: #dadae0;
-@garages: #dfddce;
+@garages: #d2d7db;
 @parking: #eeeeee;
-@parking-outline: saturate(darken(@parking, 40%), 20%);
+@parking-outline: darken(@parking, 100%);
 @railway: @industrial;
 @railway-line: @industrial-line;
 @rest_area: #efc8c8; // also services
@@ -42,7 +42,7 @@
 @bare_ground: #eee5dc;
 @campsite: #def6c0; // also caravan_site, picnic_site
 @cemetery: #aacbaf; // also grave_yard
-@construction: #c7c7b4; // also brownfield
+@construction: #EFEFEF; // also brownfield
 @heath: #d6d99f;
 @mud: rgba(203,177,154,0.3); // produces #e6dcd1 over @land
 @place_of_worship: #d0d0d0; // also landuse_religious
@@ -51,10 +51,10 @@
 @power: darken(@industrial, 5%);
 @power-line: darken(@industrial-line, 5%);
 @sand: #f5e9c6;
-@societal_amenities: #ffffe5;   // Lch(99,13,109)
+@societal_amenities: #e8e8e8;   // Lch(99,13,109)
 @tourism: #660033;
 @quarry: #c5c3c3;
-@military: #f55;
+@military: #88a67d;
 @beach: #fff1ba;
 @wastewater_plant: @industrial;
 @wastewater_plant-line: @industrial-line;
@@ -63,7 +63,7 @@
 
 // --- Sports ---
 
-@pitch: #aae0cb;           // Lch(85,22,168) also track
+@pitch: #CEEAD6;           // Lch(85,22,168) also track
 @track: @pitch;
 @stadium: @leisure; // also sports_centre
 @golf_course: #b5e3b5;
@@ -78,7 +78,7 @@
 
   [feature = 'leisure_swimming_pool'][zoom >= 14] {
     polygon-fill: @water-color;
-    [zoom >= 17] {
+    [zoom >= 18] {
       line-width: 0.5;
       line-color: saturate(darken(@water-color, 20%), 20%);
     }
@@ -89,14 +89,12 @@
   [feature = 'leisure_recreation_ground'][zoom >= 10],
   [feature = 'landuse_recreation_ground'][zoom >= 10],
   [feature = 'leisure_playground'][zoom >= 13],
-  [feature = 'leisure_fitness_station'][zoom >= 13] {
+  [feature = 'leisure_fitness_station'][zoom >= 17] {
     polygon-fill: @leisure;
-    [zoom >= 15] {
-      line-color: darken(@leisure, 60%);
-      line-width: 0.3;
-    }
-    [way_pixels >= 4]  { polygon-gamma: 0.75; }
-    [way_pixels >= 64] { polygon-gamma: 0.3;  }
+    line-color: darken(@leisure, 60%);
+    line-width: 0.3;
+  [way_pixels >= 4]  { polygon-gamma: 0.75; }
+  [way_pixels >= 64] { polygon-gamma: 0.3;  }
   }
 
   [feature = 'tourism_camp_site'],
@@ -226,7 +224,7 @@
     polygon-fill: @built-up-lowzoom;
     [zoom >= 12] { polygon-fill: @built-up-z12; }
     [zoom >= 13] { polygon-fill: @residential; }
-    [zoom >= 16] {
+    [zoom >= 17] {
       line-width: .5;
       line-color: @residential-line;
       [name != ''] {
@@ -354,15 +352,6 @@
       polygon-fill: @built-up-lowzoom;
       [zoom >= 12] { polygon-fill: @built-up-z12; }
       [zoom >= 13] { polygon-fill: @retail; }
-      [zoom >= 16] {
-        line-width: 0.5;
-        line-color: @retail-line;
-        [name != ''] {
-          line-width: 0.7;
-        }
-        [way_pixels >= 4]  { polygon-gamma: 0.75; }
-        [way_pixels >= 64] { polygon-gamma: 0.3;  }
-      }
     }
   }
 
@@ -449,7 +438,7 @@
     polygon-fill: @built-up-lowzoom;
     [zoom >= 12] { polygon-fill: @built-up-z12; }
     [zoom >= 13] { polygon-fill: @commercial; }
-    [zoom >= 16] {
+    [zoom >= 17] {
       line-width: 0.5;
       line-color: @commercial-line;
       [name != ''] {
@@ -589,8 +578,6 @@
     }
     [zoom >= 13] {
       polygon-fill: @societal_amenities;
-      line-width: 0.3;
-      line-color: darken(@societal_amenities, 35%);
     }
   }
 
@@ -615,7 +602,7 @@
   [feature = 'amenity_taxi'] {
     [zoom >= 14] {
       polygon-fill: @parking;
-      [zoom >= 15] {
+      [zoom >= 18] {
         line-width: 0.3;
         line-color: @parking-outline;
       }
@@ -806,17 +793,13 @@
   [landuse = 'military'][zoom >= 8][way_pixels > 900],
   [landuse = 'military'][zoom >= 13],
   [military = 'danger_area'][zoom >= 9] {
-    polygon-pattern-file: url('symbols/military_red_hatch.png');
-    polygon-pattern-alignment: global;
+
     line-color: @military;
     line-opacity: 0.24;
     line-width: 1.0;
     line-offset: -0.5;
     [zoom >= 15] {
-      [military = 'danger_area'][zoom >= 9] {
-        polygon-pattern-file: url('symbols/danger_red_hatch.png');
-        line-opacity: 0.2;
-      }
+
       line-width: 2;
       line-offset: -1.0;
     }
@@ -848,9 +831,9 @@
 }
 
 #barriers {
-  [zoom >= 16] {
+  [zoom >= 17] {
     line-width: 0.4;
-    line-color: #444;
+    line-color: #cfcfcf;
   }
   [feature = 'barrier_hedge'][zoom >= 16] {
     line-width: 1.5;

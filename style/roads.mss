@@ -1,6 +1,6 @@
 /* For the main linear features, such as roads and railways. */
 
-@tertiary-fill: #ffffff;
+@tertiary-fill: #FFEEAA;
 @residential-fill: #ffffff;
 @service-fill: @residential-fill;
 @living-street-fill: #FFFFFF;
@@ -8,7 +8,7 @@
 @raceway-fill: pink;
 @road-fill: #ddd;
 @footway-fill: #ffffff;
-@footway-fill-noaccess: #bbbbbb;
+@footway-fill-noaccess: #dddde8;
 @steps-fill: @footway-fill;
 @steps-fill-noaccess: #bbbbbb;
 @cycleway-fill: #6DBF83;
@@ -25,7 +25,7 @@
 @access-marking-living-street: #cccccc;
 
 @default-casing: white;
-@tertiary-casing: #8f8f8f;
+@tertiary-casing: #EBB888;
 @residential-casing: #bbb;
 @road-casing: @residential-casing;
 @service-casing: @residential-casing;
@@ -123,24 +123,24 @@
 @tertiary-width-z14:              5;
 @residential-width-z14:           3;
 @living-street-width-z14:         3;
-@pedestrian-width-z14:            3;
+@pedestrian-width-z14:            2;
 @road-width-z14:                  2;
 @service-width-z14:               2;
 @steps-width-z14:                 0.7;
 
-@motorway-width-z15:             10;
+@motorway-width-z15:             7;
 @motorway-link-width-z15:         7.8;
-@trunk-width-z15:                10;
+@trunk-width-z15:                6;
 @trunk-link-width-z15:          7.8;
-@primary-width-z15:              10;
+@primary-width-z15:              6;
 @primary-link-width-z15:        7.8;
-@secondary-width-z15:             9;
-@secondary-link-width-z15:        7;
-@tertiary-width-z15:              9;
-@tertiary-link-width-z15:         7;
+@secondary-width-z15:             6;
+@secondary-link-width-z15:        6;
+@tertiary-width-z15:              6;
+@tertiary-link-width-z15:         6;
 @residential-width-z15:           5;
 @living-street-width-z15:         5;
-@pedestrian-width-z15:            5;
+@pedestrian-width-z15:            2;
 @bridleway-width-z15:             1.2;
 @footway-width-z15:               1;
 @cycleway-width-z15:              0.9;
@@ -151,30 +151,30 @@
 @track-grade2-width-z17:          4;
 @steps-width-z15:                 3;
 
-@secondary-width-z16:            10;
-@tertiary-width-z16:             10;
+@secondary-width-z16:            7;
+@tertiary-width-z16:             7;
 @residential-width-z16:           6;
 @living-street-width-z16:         6;
-@pedestrian-width-z16:            6;
+@pedestrian-width-z16:            3;
 @road-width-z16:                  3.5;
 @service-width-z16:               3.5;
 @minor-service-width-z16:         2;
 @footway-width-z16:               1.5;
 @cycleway-width-z16:              0.9;
 
-@motorway-width-z17:             18;
+@motorway-width-z17:             14;
 @motorway-link-width-z17:        12;
 @trunk-width-z17:                18;
 @trunk-link-width-z17:           12;
-@primary-width-z17:              18;
+@primary-width-z17:              14;
 @primary-link-width-z17:         12;
-@secondary-width-z17:            18;
+@secondary-width-z17:            14;
 @secondary-link-width-z17:       12;
-@tertiary-width-z17:             18;
+@tertiary-width-z17:             14;
 @tertiary-link-width-z17:        12;
 @residential-width-z17:          12;
 @living-street-width-z17:        12;
-@pedestrian-width-z17:           12;
+@pedestrian-width-z17:           5;
 @road-width-z17:                  7;
 @service-width-z17:               7;
 @minor-service-width-z17:         3.5;
@@ -189,9 +189,9 @@
 @secondary-link-width-z18:       13;
 @tertiary-width-z18:             21;
 @tertiary-link-width-z18:        13;
-@residential-width-z18:          13;
-@living-street-width-z18:        13;
-@pedestrian-width-z18:           13;
+@residential-width-z18:          14;
+@living-street-width-z18:        14;
+@pedestrian-width-z18:           9;
 @road-width-z18:                  8.5;
 @service-width-z18:               8.5;
 @minor-service-width-z18:         4.75;
@@ -208,9 +208,9 @@
 @secondary-link-width-z19:       16;
 @tertiary-width-z19:             27;
 @tertiary-link-width-z19:        16;
-@residential-width-z19:          17;
-@living-street-width-z19:        17;
-@pedestrian-width-z19:           17;
+@residential-width-z19:          23;
+@living-street-width-z19:        23;
+@pedestrian-width-z19:           12;
 @road-width-z19:                 11;
 @service-width-z19:              11;
 @minor-service-width-z19:         5.5;
@@ -307,11 +307,11 @@
 
 // Shield’s line wrap is based on OpenStreetMap data and not on line-wrap-width,
 // but lines are typically rather short, so we use narrow line spacing.
-@shield-size: 10;
+@shield-size: 12;
 @shield-line-spacing: -1.50; // -0.15 em
-@shield-size-z16: 11;
+@shield-size-z16: 14;
 @shield-line-spacing-z16: -1.65; // -0.15 em
-@shield-size-z18: 12;
+@shield-size-z18: 15;
 @shield-line-spacing-z18: -1.80; // -0.15 em
 @shield-spacing: 760;
 @shield-repeat-distance: 400;
@@ -557,15 +557,12 @@
       [zoom >= 16][service = 'INT-minor'] {
         line-color: @service-casing;
         [service = 'INT-normal'] {
-          line-width: @service-width-z14;
-          [zoom >= 16] { line-width: @service-width-z16; }
           [zoom >= 17] { line-width: @service-width-z17; }
           [zoom >= 18] { line-width: @service-width-z18; }
           [zoom >= 19] { line-width: @service-width-z19; }
           [zoom >= 20] { line-width: @service-width-z20; }
         }
         [service = 'INT-minor'] {
-          line-width: @minor-service-width-z16;
           [zoom >= 17] { line-width: @minor-service-width-z17; }
           [zoom >= 18] { line-width: @minor-service-width-z18; }
           [zoom >= 19] { line-width: @minor-service-width-z19; }

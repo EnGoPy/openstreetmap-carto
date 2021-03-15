@@ -15,10 +15,14 @@
     polygon-fill: @building-low-zoom;
     polygon-clip: false;
     [zoom >= 17] {
-      polygon-fill: @building-fill;
       line-color: @building-line;
-      line-width: .75;
+      line-width: 0;
       line-clip: false;
+      [zoom >= 18] {
+        polygon-fill: @building-fill;
+        line-color: @building-line;
+        line-width: .75;
+      }
     }
     [amenity = 'place_of_worship'],
     [aeroway = 'terminal'],
